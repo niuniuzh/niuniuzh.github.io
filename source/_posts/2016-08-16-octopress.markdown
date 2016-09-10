@@ -70,8 +70,6 @@ git commit -m "comment"
 git push origin source
 ```
 
-
-
 $$
 \begin{align}
 \mbox{Union: } & A\cup B = \{x\mid x\in A \mbox{ or } x\in B\} \\
@@ -79,6 +77,7 @@ $$
 \mbox{Star: } & A^\star  = \{x_1x_2\ldots x_k \mid  k\geq 0 \mbox{ and each } x_i\in A\} \\
 \end{align}
 $$
+
 $$
 \begin{align*}
   & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
@@ -95,11 +94,6 @@ $$
     \end{array} \right)
 \end{align*}
 $$
-If $a^2=b$ and $b=2$, then the solution must be
-
-either $a=+\sqrt{2}$ or $a=-\sqrt{2}$.
-
-
 
 ```cpp
 int main()
