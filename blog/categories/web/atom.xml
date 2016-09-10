@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Web | My Octopress Blog]]></title>
+  <link href="http://niuniuzh.github.io/blog/categories/web/atom.xml" rel="self"/>
+  <link href="http://niuniuzh.github.io/"/>
+  <updated>2016-09-10T22:59:18+08:00</updated>
+  <id>http://niuniuzh.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Windows下搭建OctoPress]]></title>
+    <link href="http://niuniuzh.github.io/blog/2016/08/16/octopress/"/>
+    <updated>2016-08-16T22:34:26+08:00</updated>
+    <id>http://niuniuzh.github.io/blog/2016/08/16/octopress</id>
+    <content type="html"><![CDATA[<hr />
+
+<p>很早就想要搭建一个博客，懒死了。记录一下搭建过程，以作备忘。</p>
+
+<p>Github</p>
+
+<p>申请一个github账号，创建一个仓库，方便代码托管。仓库格式： yourusername.github.io</p>
+
+<p>Ruby</p>
+
+<p>默认安装，添加环境变量，查看Ruby版本。</p>
+
+<p><code>
+ruby --version
+</code>
+DevKit</p>
+
+<p>下载解压到某个目录，shift右键在此处打开命令窗口，执行如下口令。
+<code>
+cd DevKit
+ruby dk.rb init 
+ruby dk.rb install
+</code>
+<!-- more -->
+Octopress</p>
+
+<p>在安装Octopress之前，确保安装了git，使用下面命令下载Octopress。</p>
+
+<p><code>
+git clone git://github.com/imathis/octopress.git octopress
+cd octopress
+gem install bundler
+bundle install
+rake install
+</code>
+安装Octopress主题
+<code>
+rake install
+</code>
+编写文章
+<code>
+rake new_post['title'] 
+</code>
+生成一个markdown文件，使用markdown编辑完成之后，执行
+<code>
+rake generate
+rake preview
+</code>
+然后打开http://127.0.0.1:4000/ 看看效果,没有问题就可以发布了。</p>
+
+<p>部署到github上，运行
+<code>
+rake setup_github_pages
+</code>
+此时会要求输入仓库的url，git@github.com:yourusername/yourusername.github.io，设置成功之后，将本地代码同步到github上面
+<code>
+rake deploy 
+git add .
+git commit -m "comment"
+git push origin source
+</code></p>
+
+<p><script type="math/tex">% &lt;![CDATA[
+\begin{align}
+\mbox{Union: } & A\cup B = \{x\mid x\in A \mbox{ or } x\in B\} \\
+\mbox{Concatenation: } & A\circ B  = \{xy\mid x\in A \mbox{ and } y\in B\} \\
+\mbox{Star: } & A^\star  = \{x_1x_2\ldots x_k \mid  k\geq 0 \mbox{ and each } x_i\in A\} \\
+\end{align} %]]&gt;</script>
+<script type="math/tex">% &lt;![CDATA[
+\begin{align*}
+  & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
+  = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
+  & (x_1, \ldots, x_n) \left( \begin{array}{ccc}
+      \phi(e_1, e_1) & \cdots & \phi(e_1, e_n) \\
+      \vdots & \ddots & \vdots \\
+      \phi(e_n, e_1) & \cdots & \phi(e_n, e_n)
+    \end{array} \right)
+  \left( \begin{array}{c}
+      y_1 \\
+      \vdots \\
+      y_n
+    \end{array} \right)
+\end{align*} %]]&gt;</script>
+If $a^2=b$ and $b=2$, then the solution must be</p>
+
+<p>either $a=+\sqrt{2}$ or $a=-\sqrt{2}$.</p>
+
+<p><code>cpp
+int main()
+{
+    int a=10;
+    int b=20;
+    return 1;
+}
+</code>
+AT&amp;T</p>
+]]></content>
+  </entry>
+  
+</feed>

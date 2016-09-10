@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Test | My Octopress Blog]]></title>
+  <link href="http://niuniuzh.github.io/blog/categories/test/atom.xml" rel="self"/>
+  <link href="http://niuniuzh.github.io/"/>
+  <updated>2016-09-10T22:59:18+08:00</updated>
+  <id>http://niuniuzh.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[This Is a Test]]></title>
+    <link href="http://niuniuzh.github.io/blog/2016/09/10/this-is-a-test/"/>
+    <updated>2016-09-10T19:56:38+08:00</updated>
+    <id>http://niuniuzh.github.io/blog/2016/09/10/this-is-a-test</id>
+    <content type="html"><![CDATA[<p>这是一个测试，
+刷新千牛，优化标题，排名，等等；
+<code>cpp
+int main()
+{
+   int a;
+   int b
+   int c; 
+}
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

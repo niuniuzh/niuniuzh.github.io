@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://yoursite.com/blog/2016/08/16/octopress/</loc>
+<loc>http://niuniuzh.github.io/blog/2016/09/10/this-is-a-test/</loc>
+<lastmod>2016-09-10T19:56:38+08:00</lastmod>
+</url>
+<url>
+<loc>http://niuniuzh.github.io/blog/2016/08/16/octopress/</loc>
 <lastmod>2016-08-16T22:34:26+08:00</lastmod>
 </url>
 <url>
-<loc>http://yoursite.com/blog/archives/</loc>
+<loc>http://niuniuzh.github.io/blog/archives/</loc>
 </url>
 <url>
-<loc>http://yoursite.com/</loc>
+<loc>http://niuniuzh.github.io/</loc>
+</url>
+<url>
+<loc>http://niuniuzh.github.io/about/</loc>
+</url>
+<url>
+<loc>http://niuniuzh.github.io/blog/categories/web/</loc>
+</url>
+<url>
+<loc>http://niuniuzh.github.io/blog/categories/test/</loc>
 </url>
 </urlset>
