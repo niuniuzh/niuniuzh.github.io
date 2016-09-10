@@ -80,13 +80,14 @@ git commit -m "comment"
 git push origin source
 </code></p>
 
-<p><script type="math/tex">% &lt;![CDATA[
+<script type="math/tex; mode=display">% &lt;![CDATA[
 \begin{align}
 \mbox{Union: } & A\cup B = \{x\mid x\in A \mbox{ or } x\in B\} \\
 \mbox{Concatenation: } & A\circ B  = \{xy\mid x\in A \mbox{ and } y\in B\} \\
 \mbox{Star: } & A^\star  = \{x_1x_2\ldots x_k \mid  k\geq 0 \mbox{ and each } x_i\in A\} \\
 \end{align} %]]&gt;</script>
-<script type="math/tex">% &lt;![CDATA[
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
 \begin{align*}
   & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
   = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
@@ -101,9 +102,6 @@ git push origin source
       y_n
     \end{array} \right)
 \end{align*} %]]&gt;</script>
-If $a^2=b$ and $b=2$, then the solution must be</p>
-
-<p>either $a=+\sqrt{2}$ or $a=-\sqrt{2}$.</p>
 
 <p><code>cpp
 int main()
