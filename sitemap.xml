@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<<<<<<< HEAD
 <loc>http://niuniuzh.github.io/blog/2017/03/31/hahaha/</loc>
 <lastmod>2017-03-31T22:49:36+08:00</lastmod>
 </url>
 <url>
+=======
+>>>>>>> 45c74933d680a45f867e428e77d9df83fe02f9ec
 <loc>http://niuniuzh.github.io/blog/2016/09/10/this-is-a-test/</loc>
 <lastmod>2016-09-10T19:56:38+08:00</lastmod>
 </url>
@@ -13,10 +16,17 @@
 <lastmod>2016-08-16T22:34:26+08:00</lastmod>
 </url>
 <url>
+<<<<<<< HEAD
 <loc>http://niuniuzh.github.io/</loc>
 </url>
 <url>
 <loc>http://niuniuzh.github.io/blog/archives/</loc>
+=======
+<loc>http://niuniuzh.github.io/blog/archives/</loc>
+</url>
+<url>
+<loc>http://niuniuzh.github.io/</loc>
+>>>>>>> 45c74933d680a45f867e428e77d9df83fe02f9ec
 </url>
 <url>
 <loc>http://niuniuzh.github.io/about/</loc>
