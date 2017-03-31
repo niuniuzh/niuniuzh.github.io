@@ -4,11 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://niuniuzh.github.io/atom.xml" rel="self"/>
   <link href="http://niuniuzh.github.io/"/>
-<<<<<<< HEAD
   <updated>2017-03-31T23:39:29+08:00</updated>
-=======
-  <updated>2016-09-10T23:44:49+08:00</updated>
->>>>>>> 45c74933d680a45f867e428e77d9df83fe02f9ec
   <id>http://niuniuzh.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -18,7 +14,6 @@
 
   
   <entry>
-<<<<<<< HEAD
     <title type="html"><![CDATA[同步OCTOPRESS到新电脑上]]></title>
     <link href="http://niuniuzh.github.io/blog/2017/03/31/hahaha/"/>
     <updated>2017-03-31T22:49:36+08:00</updated>
@@ -91,8 +86,6 @@
   </entry>
   
   <entry>
-=======
->>>>>>> 45c74933d680a45f867e428e77d9df83fe02f9ec
     <title type="html"><![CDATA[This Is a Test]]></title>
     <link href="http://niuniuzh.github.io/blog/2016/09/10/this-is-a-test/"/>
     <updated>2016-09-10T19:56:38+08:00</updated>
