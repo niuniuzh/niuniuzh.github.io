@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[My Octopress Blog]]></title>
+  <link href="http://niuniuzh.github.io/atom.xml" rel="self"/>
+  <link href="http://niuniuzh.github.io/"/>
+  <updated>2017-05-20T12:56:07+08:00</updated>
+  <id>http://niuniuzh.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[在ubuntu上安装shadowsocks]]></title>
+    <link href="http://niuniuzh.github.io/blog/2017/05/20/shadowsocks/"/>
+    <updated>2017-05-20T12:15:42+08:00</updated>
+    <id>http://niuniuzh.github.io/blog/2017/05/20/shadowsocks</id>
+    <content type="html"><![CDATA[<h2 id="ubuntushadowsocks">ubuntu安装shadowsocks</h2>
+<p>1.通过PPA源安装，设置PPA源</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo add-apt-repository ppa:hzwhuang/ss-qt5
+</span><span class="line">sudo apt update
+</span><span class="line">sudo apt install shadowsocks-qt5</span></code></pre></td></tr></table></div></figure>
+
+<p>shadowsocks配置</p>
+
+<p>1.打开界面，依次填入server address,server port,password,等等。。。</p>
+
+<p>2连接，把程序启动自动连接勾上，每次启动就会自动连接了</p>
+
+<p>配置全局代理</p>
+
+<p>1.安装GenPAC</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo pip install genpac
+</span><span class="line">sudo pip install --upgrade genpac</span></code></pre></td></tr></table></div></figure>
+<!-- more -->
+<p>2.下载gfwlist</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">genpac -p "SOCKS5 127.0.0.1:1080" --gfwlist-proxy="SOCKS5 127.0.0.1:1080" --output="autoproxy.pac" --gfwlist-url</span></code></pre></td></tr></table></div></figure>
+<p>3.设置代理</p>
+
+<p>点击网络，选择代理，method为automatic,然后设置文件路径
+file:///home/missnote/vpnPAC/autoproxy.pac,大工告成.</p>
+
+<p>安装proxychains</p>
+
+<p>1.安装</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo apt install proxychains</span></code></pre></td></tr></table></div></figure>
+<p>2.编辑配置</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">gvim /etc/proxychains.conf
+</span><span class="line">socks4 127.0.0.1 9095 ---&gt; socks5 127.0.0.1 1080</span></code></pre></td></tr></table></div></figure>
+<p>3.使用方法</p>
+
+<p>需要代理的前面加上proxychains</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo proxychains you-get
+</span><span class="line">proxychains pip install</span></code></pre></td></tr></table></div></figure>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[同步OCTOPRESS到新电脑上]]></title>
+    <link href="http://niuniuzh.github.io/blog/2017/03/31/hahaha/"/>
+    <updated>2017-03-31T22:49:36+08:00</updated>
+    <id>http://niuniuzh.github.io/blog/2017/03/31/hahaha</id>
+    <content type="html"><![CDATA[<hr />
+
+<p>很早之前，在WINDOWS上搭建好了OCTOPRESS博客，懒死了，没有写一些什么东西，换一台新电脑，装了UBUNTU系统，想要同步一下之前的博客，
+以做备忘。</p>
+
+<p>首先，从GITHUB上面CLONE原来blog的SOURCE分支：</p>
+
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git clone -b source git@github.com:niuniuzh/niuniuzh.github.io octopress</span></code></pre></td></tr></table></div></figure>
+
+<p>然后，切换到OCTOPRESS目录，CLONE主分支：</p>
+
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git clone git@github.com:niuniuzh/niuniuzh.github.io _deploy</span></code></pre></td></tr></table></div></figure>
+
+<!-- more -->
+<p>Octopress</p>
+
+<p>安装一些配置文件</p>
+
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">gem install bundler
+</span><span class="line">bundle install
+</span><span class="line">rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
+
+<p>设置你的GITHUB仓库</p>
+
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">Enter the read/write url for your repository
+</span><span class="line">git@github.com:niuniuzh/niuniuzh.github.io</span></code></pre></td></tr></table></div></figure>
+
+<p>然后使用命令在本地预览一下</p>
+
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">rake preview</span></code></pre></td></tr></table></div></figure>
+
+<p>发布新的文章</p>
+
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">rake new_post['title']
+</span><span class="line">rake generate
+</span><span class="line">rake preview</span></code></pre></td></tr></table></div></figure>
+
+<p>推送到GITHUB上面</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git add .
+</span><span class="line">git commit -m"some details"
+</span><span class="line">git push origin source
+</span><span class="line">rake deploy</span></code></pre></td></tr></table></div></figure>
+
+<p>在新的电脑上同步文件</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">cd octopress
+</span><span class="line">git pull origin source
+</span><span class="line">cd _deploy
+</span><span class="line">git pull origin master</span></code></pre></td></tr></table></div></figure>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[This Is a Test]]></title>
+    <link href="http://niuniuzh.github.io/blog/2016/09/10/this-is-a-test/"/>
+    <updated>2016-09-10T19:56:38+08:00</updated>
+    <id>http://niuniuzh.github.io/blog/2016/09/10/this-is-a-test</id>
+    <content type="html"><![CDATA[<p>这是一个测试，
+刷新千牛，优化标题，排名，等等；</p>
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span><span class="line"><span class="p">{</span>
+</span><span class="line">   <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+</span><span class="line">   <span class="kt">int</span> <span class="n">b</span>
+</span><span class="line">   <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Windows下搭建OctoPress]]></title>
+    <link href="http://niuniuzh.github.io/blog/2016/08/16/octopress/"/>
+    <updated>2016-08-16T22:34:26+08:00</updated>
+    <id>http://niuniuzh.github.io/blog/2016/08/16/octopress</id>
+    <content type="html"><![CDATA[<hr />
+
+<p>很早就想要搭建一个博客，懒死了。记录一下搭建过程，以作备忘。</p>
+
+<p>Github</p>
+
+<p>申请一个github账号，创建一个仓库，方便代码托管。仓库格式： yourusername.github.io</p>
+
+<p>Ruby</p>
+
+<p>默认安装，添加环境变量，查看Ruby版本。</p>
+
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">ruby --version</span></code></pre></td></tr></table></div></figure>
+<p>DevKit</p>
+
+<p>下载解压到某个目录，shift右键在此处打开命令窗口，执行如下口令。</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">cd DevKit
+</span><span class="line">ruby dk.rb init 
+</span><span class="line">ruby dk.rb install</span></code></pre></td></tr></table></div></figure>
+<!-- more -->
+<p>Octopress</p>
+
+<p>在安装Octopress之前，确保安装了git，使用下面命令下载Octopress。</p>
+
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git clone git://github.com/imathis/octopress.git octopress
+</span><span class="line">cd octopress
+</span><span class="line">gem install bundler
+</span><span class="line">bundle install
+</span><span class="line">rake install</span></code></pre></td></tr></table></div></figure>
+<p>安装Octopress主题</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">rake install</span></code></pre></td></tr></table></div></figure>
+<p>编写文章</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">rake new_post['title'] </span></code></pre></td></tr></table></div></figure>
+<p>生成一个markdown文件，使用markdown编辑完成之后，执行</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">rake generate
+</span><span class="line">rake preview</span></code></pre></td></tr></table></div></figure>
+<p>然后打开http://127.0.0.1:4000/ 看看效果,没有问题就可以发布了。</p>
+
+<p>部署到github上，运行</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
+<p>此时会要求输入仓库的url，git@github.com:yourusername/yourusername.github.io，设置成功之后，将本地代码同步到github上面</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">rake deploy 
+</span><span class="line">git add .
+</span><span class="line">git commit -m "comment"
+</span><span class="line">git push origin source</span></code></pre></td></tr></table></div></figure>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{align}
+\mbox{Union: } & A\cup B = \{x\mid x\in A \mbox{ or } x\in B\} \\
+\mbox{Concatenation: } & A\circ B  = \{xy\mid x\in A \mbox{ and } y\in B\} \\
+\mbox{Star: } & A^\star  = \{x_1x_2\ldots x_k \mid  k\geq 0 \mbox{ and each } x_i\in A\} \\
+\end{align} %]]&gt;</script>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{align*}
+  & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
+  = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
+  & (x_1, \ldots, x_n) \left( \begin{array}{ccc}
+      \phi(e_1, e_1) & \cdots & \phi(e_1, e_n) \\
+      \vdots & \ddots & \vdots \\
+      \phi(e_n, e_1) & \cdots & \phi(e_n, e_n)
+    \end{array} \right)
+  \left( \begin{array}{c}
+      y_1 \\
+      \vdots \\
+      y_n
+    \end{array} \right)
+\end{align*} %]]&gt;</script>
+
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span><span class="line"><span class="p">{</span>
+</span><span class="line">    <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+</span><span class="line">    <span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span>
+</span><span class="line">    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>AT&amp;T</p>
+]]></content>
+  </entry>
+  
+</feed>
