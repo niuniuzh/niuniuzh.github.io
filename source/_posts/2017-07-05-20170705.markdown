@@ -1,0 +1,18 @@
+---
+layout: post
+title: "在ubuntu上安装mysql"
+date: 2017-07-05 12:41:00 +0800
+comments: true
+categories: database
+---
+## ubuntu 安装mysql
+1.打开终端输入
+```
+sudo apt install mysql-server mysql-client
+```
+然后设置root密码。
+
+2.登录mysal
+```
+mysql -u root -p
+```
