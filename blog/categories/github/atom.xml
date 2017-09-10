@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Github | My Octopress Blog]]></title>
+  <link href="http://niuniuzh.github.io/blog/categories/github/atom.xml" rel="self"/>
+  <link href="http://niuniuzh.github.io/"/>
+  <updated>2017-09-10T12:37:40+08:00</updated>
+  <id>http://niuniuzh.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Github]]></title>
+    <link href="http://niuniuzh.github.io/blog/2017/08/29/learn-github/"/>
+    <updated>2017-08-29T20:02:01+08:00</updated>
+    <id>http://niuniuzh.github.io/blog/2017/08/29/learn-github</id>
+    <content type="html"><![CDATA[<h2 id="ubuntugit">在ubuntu上安装git</h2>
+<p>1.打开终端输入
+<code>
+sudo apt install git
+git
+</code>
+如果是在windows上安装，使用<a href="https://git-for-windows.github.io" title="msysgit">msysgit</a></p>
+
+<!-- more -->
+<p>2.配置用户信息
+<code>
+git config --global user.name 'Your name'
+git config --global user.email 'email@gmail.com'
+git config --global core.editor emacs || gvim
+</code></p>
+
+<p>3.检查配置信息
+<code>
+git config --list
+git config &lt;key&gt;
+</code></p>
+
+<p>4.使用帮助
+<code>
+git help &lt;verb&gt;
+git &lt;verb&gt; --help
+man git-&lt;verb&gt;
+git help config
+</code></p>
+
+<p>5.初始化仓库
+<code>
+mkdir test &amp;&amp; cd test
+git init
+git clone &lt;url&gt; ~/test
+</code></p>
+
+<p>6.修改和提交
+<code>
+git status
+git diff
+git add -A -v
+git add .
+git add &lt;file&gt;
+git mv &lt;old&gt; &lt;new&gt;
+git rm &lt;file&gt;
+git rm --cached &lt;file&gt;
+git commit -m "message"
+git commit --amend
+</code></p>
+
+<p>7.忽略文件
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.gitignore规则
+</span><span class='line'>空行#开头会被忽略
+</span><span class='line'>glob正则匹配
+</span><span class='line'>[abc],*,?[0-9],a/**/z
+</span><span class='line'>!取反&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;&lt;em&gt;.a
+</span><span class='line'>!lib.a
+</span><span class='line'>/TODO
+</span><span class='line'>build/
+</span><span class='line'>doc/&lt;/em&gt;.*
+</span><span class='line'>doc/&lt;em&gt;*/.&lt;/em&gt;</span></code></pre></td></tr></table></div></figure></p>
+
+<p>8.查看历史
+<code>
+git log
+git log -p -n
+git log --stat
+git log --pretty=oneline
+git log --pretty=format:""
+git log --graph
+</code></p>
+
+<p>9.GIT撤销操作
+<code>
+git commit --amend
+git reset HEAD &lt;file&gt;
+git checkout --&lt;file&gt;
+</code></p>
+
+<p>10.ssh-key
+<code>
+ssh-keygen -t rsa -C "youremail@example.com"
+git remote -v    查看远程仓库
+git remote add something git@github.com:xxxx/xxxx
+git push -u origin master
+git remote show origin
+git remote rename xx  yy
+git remote rm xx
+</code></p>
+
+<p>11.添加tag
+<code>
+git tag    --列出所有tag
+git tag -a v1.1 hashkey
+git show v1.1    --显示v1.1
+git push origin tagname
+git push origin --tags
+git tag -d v1.1    --删除tag
+git push origin --delete tag v1.1
+git push origin :refs/tags/v1.1
+git checkout -b [branchname] [tagname]    --检出
+</code></p>
+
+<p>12.alias配置别名
+<code>
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.cm commit
+git config --global alias.br branch
+git config --global alias.unstage 'reset HEAD'
+git config --global alias.last 'log -1'
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"
+</code></p>
+
+<p>13.创建合并分支
+<code>
+git branch haha    --创建分支haha
+git checkout haha    --切换分支haha
+git checkout -b haha    --创建并切换分支haha
+git merge haha    --合并分支haha
+git branch -d haha    --删除分支haha
+git mergetool    --解决冲突
+git push (remote) (branch)
+git push origin --delete haha
+git rebase [basebranch] [topicbranch]
+</code></p>
+
+<p>14.其他git命令
+<code>
+git stash    --储藏
+git stash pop
+git stash apply
+git commit --amend    --修改最后一次提交
+git rebase -i HEAD~3    --最近n次提交
+</code></p>
+
+<p><a href="&quot;https://git-scm.com/book/zh/v2/&quot;">gitbook</a></p>
+]]></content>
+  </entry>
+  
+</feed>
