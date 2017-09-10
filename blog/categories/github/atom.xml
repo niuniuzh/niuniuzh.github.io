@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Github | My Octopress Blog]]></title>
   <link href="http://niuniuzh.github.io/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://niuniuzh.github.io/"/>
-  <updated>2017-09-10T12:37:40+08:00</updated>
+  <updated>2017-09-10T13:18:06+08:00</updated>
   <id>http://niuniuzh.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -169,7 +169,7 @@ git commit --amend    --修改最后一次提交
 git rebase -i HEAD~3    --最近n次提交
 </code></p>
 
-<p><a href="&quot;https://git-scm.com/book/zh/v2/&quot;">gitbook</a></p>
+<p><a href="https://git-scm.com/book/zh/v2/" title="gitbook">gitbook</a></p>
 ]]></content>
   </entry>
   
