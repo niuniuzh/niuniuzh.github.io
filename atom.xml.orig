@@ -4,8 +4,11 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://niuniuzh.github.io/atom.xml" rel="self"/>
   <link href="http://niuniuzh.github.io/"/>
+<<<<<<< HEAD
   <updated>2017-09-10T12:37:40+08:00</updated>
+=======
   <updated>2017-08-12T19:13:15+08:00</updated>
+>>>>>>> d7136b4a09c5a8800a7a86b35610f9ba819a57e3
   <id>http://niuniuzh.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -15,6 +18,7 @@
 
   
   <entry>
+<<<<<<< HEAD
     <title type="html"><![CDATA[Learn Github]]></title>
     <link href="http://niuniuzh.github.io/blog/2017/08/29/learn-github/"/>
     <updated>2017-08-29T20:02:01+08:00</updated>
@@ -219,6 +223,8 @@
   </entry>
   
   <entry>
+=======
+>>>>>>> d7136b4a09c5a8800a7a86b35610f9ba819a57e3
     <title type="html"><![CDATA[在ubuntu上安装mysql]]></title>
     <link href="http://niuniuzh.github.io/blog/2017/07/05/20170705/"/>
     <updated>2017-07-05T12:41:00+08:00</updated>
