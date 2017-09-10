@@ -146,4 +146,4 @@ git commit --amend    --修改最后一次提交
 git rebase -i HEAD~3    --最近n次提交
 ```
 
-[gitbook]("https://git-scm.com/book/zh/v2/")
+[gitbook](https://git-scm.com/book/zh/v2/ "gitbook")
