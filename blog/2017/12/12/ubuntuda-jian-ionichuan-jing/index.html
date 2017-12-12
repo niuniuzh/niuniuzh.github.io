@@ -5,11 +5,20 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Web - My Octopress Blog</title>
+  <title>Ubuntu搭建ionic环境 - My Octopress Blog</title>
   <meta name="author" content="Your Name">
 
   
-  <meta name="description" content="Category: web">
+  <meta name="description" content="首先需要安装node,但是我们要先安装一个nvm,一个管理node版本的神器.
+1
+2
+3
+4
+5
+6
+7
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.7/install.sh | bash
+sudo gvim &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +27,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://niuniuzh.github.io/blog/categories/web/">
+  <link rel="canonical" href="http://niuniuzh.github.io/blog/2017/12/12/ubuntuda-jian-ionichuan-jing/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
@@ -91,66 +100,114 @@ MathJax.Hub.Config({
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Web</h1>
+    
+      <h1 class="entry-title">Ubuntu搭建ionic环境</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-12-12T21:50:53+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>9:50 pm</span></time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><hr />
 
-  
-  <h2>2017</h2>
+<p>首先需要安装node,但是我们要先安装一个nvm,一个管理node版本的神器.</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.7/install.sh | bash
+</span><span class="line">sudo gvim .bashrc
+</span><span class="line">cp --&gt;
+</span><span class="line">export NVM_DIR="$HOME/.nvm"
+</span><span class="line">[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; . "$NVM_DIR/nvm.sh" # This loads nvm
+</span><span class="line">:wq
+</span><span class="line">source .bashrc</span></code></pre></td></tr></table></div></figure>
 
-<article>
-  
-<h1><a href="/blog/2017/05/20/shadowsocks/">在ubuntu上安装shadowsocks</a></h1>
-<time datetime="2017-05-20T12:15:42+08:00" pubdate><span class='month'>May</span> <span class='day'>20</span> <span class='year'>2017</span></time>
+<!-- more -->
+<p>安装好了,执行一下nvm –version,输出版本号就算成功了.下一步，我们来安装并使用node.</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">nvm install node
+</span><span class="line">nvm use node
+</span><span class="line">nvm ls  --显示安装的版本
+</span><span class="line">nvm ls-remote  --显示可以安装的版本
+</span><span class="line">nvm alias default node  --设置默认node</span></code></pre></td></tr></table></div></figure>
+<p>更多参考<a href="https://github.com/creationix/nvm" title="github/nvm">github</a></p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/web/'>web</a></span>
-</footer>
+<p>接下来我们就可以使用npm,安装ionic,cordova啦.</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">npm install -g cordova ionic</span></code></pre></td></tr></table></div></figure>
+<p>安装的过程有点漫长,好在还可以安装成功.</p>
 
+<p>创建一个APP,使用命令,ionic会自动生成一个项目</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">ionic start myApp tabs/blank/sidemenu</span></code></pre></td></tr></table></div></figure>
 
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2017/03/31/hahaha/">同步OCTOPRESS到新电脑上</a></h1>
-<time datetime="2017-03-31T22:49:36+08:00" pubdate><span class='month'>Mar</span> <span class='day'>31</span> <span class='year'>2017</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/web/'>web</a></span>
-</footer>
-
-
-</article>
-
-
-
-  
-  <h2>2016</h2>
-
-<article>
-  
-<h1><a href="/blog/2016/08/16/octopress/">Windows下搭建OctoPress</a></h1>
-<time datetime="2016-08-16T22:34:26+08:00" pubdate><span class='month'>Aug</span> <span class='day'>16</span> <span class='year'>2016</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/web/'>web</a></span>
-</footer>
-
-
-</article>
-
+<p>然后切换到项目目录,开启服务.在浏览器就可以看到了.</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">cd myApp
+</span><span class="line">ionic serve</span></code></pre></td></tr></table></div></figure>
+<p>更多ionic可以参考<a href="https://ionicframework.com/getting-started/" title="ionic doc">ionic</a></p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2017-12-12T21:50:53+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>9:50 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ionic/'>ionic</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2017/11/18/da-jian-gitfu-wu-qi/" title="Previous Post: 搭建git服务器">&laquo; 搭建git服务器</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

@@ -9,14 +9,16 @@
   <meta name="author" content="Your Name">
 
   
-  <meta name="description" content="在ubuntu上搭建git服务器
-1.安装git和ssh.
+  <meta name="description" content="首先需要安装node,但是我们要先安装一个nvm,一个管理node版本的神器.
 1
 2
-sudo apt install git
-sudo apt install openssh-server openssh-client 2.创建一个git用户，用来管理git服务器,设置密码.
-1
-sudo adduser git &hellip;">
+3
+4
+5
+6
+7
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.7/install.sh | bash
+sudo gvim &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -99,6 +101,56 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2017/12/12/ubuntuda-jian-ionichuan-jing/">Ubuntu搭建ionic环境</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-12-12T21:50:53+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>9:50 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><hr />
+
+<p>首先需要安装node,但是我们要先安装一个nvm,一个管理node版本的神器.</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.7/install.sh | bash
+</span><span class="line">sudo gvim .bashrc
+</span><span class="line">cp --&gt;
+</span><span class="line">export NVM_DIR="$HOME/.nvm"
+</span><span class="line">[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; . "$NVM_DIR/nvm.sh" # This loads nvm
+</span><span class="line">:wq
+</span><span class="line">source .bashrc</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2017/12/12/ubuntuda-jian-ionichuan-jing/">阅读更多-></a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -432,6 +484,10 @@ MathJax.Hub.Config({
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/12/12/ubuntuda-jian-ionichuan-jing/">Ubuntu搭建ionic环境</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2017/11/18/da-jian-gitfu-wu-qi/">搭建git服务器</a>
       </li>
     
@@ -447,10 +503,6 @@ MathJax.Hub.Config({
         <a href="/blog/2017/05/20/shadowsocks/">在ubuntu上安装shadowsocks</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2017/03/31/hahaha/">同步OCTOPRESS到新电脑上</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -462,6 +514,7 @@ MathJax.Hub.Config({
   <ul id="categories">
     <li class='category'><a href='/blog/categories/database/'>database (1)</a></li>
 <li class='category'><a href='/blog/categories/github/'>github (2)</a></li>
+<li class='category'><a href='/blog/categories/ionic/'>ionic (1)</a></li>
 <li class='category'><a href='/blog/categories/test/'>test (1)</a></li>
 <li class='category'><a href='/blog/categories/web/'>web (3)</a></li>
 

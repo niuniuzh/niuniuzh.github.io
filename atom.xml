@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://niuniuzh.github.io/atom.xml" rel="self"/>
   <link href="http://niuniuzh.github.io/"/>
-  <updated>2017-11-18T14:46:10+08:00</updated>
+  <updated>2017-12-12T23:12:03+08:00</updated>
   <id>http://niuniuzh.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ubuntu搭建ionic环境]]></title>
+    <link href="http://niuniuzh.github.io/blog/2017/12/12/ubuntuda-jian-ionichuan-jing/"/>
+    <updated>2017-12-12T21:50:53+08:00</updated>
+    <id>http://niuniuzh.github.io/blog/2017/12/12/ubuntuda-jian-ionichuan-jing</id>
+    <content type="html"><![CDATA[<hr />
+
+<p>首先需要安装node,但是我们要先安装一个nvm,一个管理node版本的神器.</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.7/install.sh | bash
+</span><span class="line">sudo gvim .bashrc
+</span><span class="line">cp --&gt;
+</span><span class="line">export NVM_DIR="$HOME/.nvm"
+</span><span class="line">[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; . "$NVM_DIR/nvm.sh" # This loads nvm
+</span><span class="line">:wq
+</span><span class="line">source .bashrc</span></code></pre></td></tr></table></div></figure>
+
+<!-- more -->
+<p>安装好了,执行一下nvm –version,输出版本号就算成功了.下一步，我们来安装并使用node.</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">nvm install node
+</span><span class="line">nvm use node
+</span><span class="line">nvm ls  --显示安装的版本
+</span><span class="line">nvm ls-remote  --显示可以安装的版本
+</span><span class="line">nvm alias default node  --设置默认node</span></code></pre></td></tr></table></div></figure>
+<p>更多参考<a href="https://github.com/creationix/nvm" title="github/nvm">github</a></p>
+
+<p>接下来我们就可以使用npm,安装ionic,cordova啦.</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">npm install -g cordova ionic</span></code></pre></td></tr></table></div></figure>
+<p>安装的过程有点漫长,好在还可以安装成功.</p>
+
+<p>创建一个APP,使用命令,ionic会自动生成一个项目</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">ionic start myApp tabs/blank/sidemenu</span></code></pre></td></tr></table></div></figure>
+
+<p>然后切换到项目目录,开启服务.在浏览器就可以看到了.</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">cd myApp
+</span><span class="line">ionic serve</span></code></pre></td></tr></table></div></figure>
+<p>更多ionic可以参考<a href="https://ionicframework.com/getting-started/" title="ionic doc">ionic</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[搭建git服务器]]></title>
