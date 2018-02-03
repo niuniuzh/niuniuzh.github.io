@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://niuniuzh.github.io
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+title: 遗忘日记
+subtitle: TO BE OR NOT TO BE.
+author: niuniuzh
 simple_search: https://www.google.com/search
-description:
+description: missnote(迷失日记),web, ubuntu
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
