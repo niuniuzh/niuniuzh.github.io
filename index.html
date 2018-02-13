@@ -9,16 +9,8 @@
   <meta name="author" content="niuniuzh">
 
   
-  <meta name="description" content="首先需要安装node,但是我们要先安装一个nvm,一个管理node版本的神器.
-1
-2
-3
-4
-5
-6
-7
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.7/install.sh | bash
-sudo gvim &hellip;">
+  <meta name="description" content="
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -101,6 +93,87 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2018/02/11/javascriptdan-li-mo-shi/">JavaScript单例模式</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-02-11T22:55:01+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>10:55 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2018/02/11/xue-xi-css-transform/">学习CSS Transform</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-02-11T00:30:09+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>12:30 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Transform变换，是css动画里扮演一重要角色。Transform只对block元素有效。使用它，元素可以translate,rotate,scale,skew。</p>
+
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">img0{width:100px;border-color:red;}
+</span><span class="line">img1{width:100px;border-color:yellow;transform:rotate(20deg);}
+</span><span class="line">img2{width:100px;border-color:green;transform:translate(20px,20px);}
+</span><span class="line">img3{width:100px;border-color:blue;transform:scale(1.2,0.8);}
+</span><span class="line">img4{width:100px;border-color:rebeccapurple;transform:skew(20deg,30deg);}</span></code></pre></td></tr></table></div></figure>
+<div style="display:flex;justify-content: space-around;padding-bottom:30px;">
+    <img src="/images/github.png" style="width:100px;border-color:red;" />
+    <img src="/images/github.png" style="width:100px;border-color:yellow;transform:rotate(20deg);" />
+    <img src="/images/github.png" style="width:100px;border-color:green;transform:translate(20px, 20px);" />
+    <img src="/images/github.png" style="width:100px;border-color:blue;transform:scale(1.2,0.8)" />
+    <img src="/images/github.png" style="width:100px;border-color:rebeccapurple;transform:skew(20deg,30deg)" />
+</div>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2018/02/11/xue-xi-css-transform/">阅读更多-></a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -484,6 +557,14 @@ MathJax.Hub.Config({
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2018/02/11/javascriptdan-li-mo-shi/">JavaScript单例模式</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/02/11/xue-xi-css-transform/">学习CSS Transform</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2017/12/12/ubuntuda-jian-ionichuan-jing/">Ubuntu搭建ionic环境</a>
       </li>
     
@@ -495,14 +576,6 @@ MathJax.Hub.Config({
         <a href="/blog/2017/08/29/learn-github/">Learn Github</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2017/07/05/20170705/">在ubuntu上安装mysql</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/05/20/shadowsocks/">在ubuntu上安装shadowsocks</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -512,7 +585,8 @@ MathJax.Hub.Config({
 <section>
   <h1>Categories</h1>
   <ul id="categories">
-    <li class='category'><a href='/blog/categories/database/'>database (1)</a></li>
+    <li class='category'><a href='/blog/categories/css/'>css (1)</a></li>
+<li class='category'><a href='/blog/categories/database/'>database (1)</a></li>
 <li class='category'><a href='/blog/categories/github/'>github (2)</a></li>
 <li class='category'><a href='/blog/categories/ionic/'>ionic (1)</a></li>
 <li class='category'><a href='/blog/categories/test/'>test (1)</a></li>

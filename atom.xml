@@ -4,7 +4,7 @@
   <title><![CDATA[遗忘日记]]></title>
   <link href="http://niuniuzh.github.io/atom.xml" rel="self"/>
   <link href="http://niuniuzh.github.io/"/>
-  <updated>2018-02-09T23:05:09+08:00</updated>
+  <updated>2018-02-14T01:08:21+08:00</updated>
   <id>http://niuniuzh.github.io/</id>
   <author>
     <name><![CDATA[niuniuzh]]></name>
@@ -12,6 +12,48 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScript单例模式]]></title>
+    <link href="http://niuniuzh.github.io/blog/2018/02/11/javascriptdan-li-mo-shi/"/>
+    <updated>2018-02-11T22:55:01+08:00</updated>
+    <id>http://niuniuzh.github.io/blog/2018/02/11/javascriptdan-li-mo-shi</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[学习CSS Transform]]></title>
+    <link href="http://niuniuzh.github.io/blog/2018/02/11/xue-xi-css-transform/"/>
+    <updated>2018-02-11T00:30:09+08:00</updated>
+    <id>http://niuniuzh.github.io/blog/2018/02/11/xue-xi-css-transform</id>
+    <content type="html"><![CDATA[<p>Transform变换，是css动画里扮演一重要角色。Transform只对block元素有效。使用它，元素可以translate,rotate,scale,skew。</p>
+
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">img0{width:100px;border-color:red;}
+</span><span class="line">img1{width:100px;border-color:yellow;transform:rotate(20deg);}
+</span><span class="line">img2{width:100px;border-color:green;transform:translate(20px,20px);}
+</span><span class="line">img3{width:100px;border-color:blue;transform:scale(1.2,0.8);}
+</span><span class="line">img4{width:100px;border-color:rebeccapurple;transform:skew(20deg,30deg);}</span></code></pre></td></tr></table></div></figure>
+<div style="display:flex;justify-content: space-around;padding-bottom:30px;">
+    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;border-color:red;" />
+    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;border-color:yellow;transform:rotate(20deg);" />
+    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;border-color:green;transform:translate(20px, 20px);" />
+    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;border-color:blue;transform:scale(1.2,0.8)" />
+    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;border-color:rebeccapurple;transform:skew(20deg,30deg)" />
+</div>
+
+<!-- more -->
+
+<p>第一个图片没有任何改变，原本的样式。第二个图片加上一个rotate旋转，从原点(由 transform-origin 属性指定)开始安装顺时针方向旋转元素一个特定的角度。
+第三个图片加上一个translate平移，在x方向和y方向移动指定的距离。第四个图片加上一个缩放scale,在x方向和y方向放大缩小指定倍数。第四个图片加上一个skew
+倾斜，与x轴或者y轴转动设置的角度。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ubuntu搭建ionic环境]]></title>
