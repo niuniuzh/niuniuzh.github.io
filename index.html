@@ -9,8 +9,23 @@
   <meta name="author" content="niuniuzh">
 
   
-  <meta name="description" content="
-">
+  <meta name="description" content="单例模式顾名思义，就是只有一个实例。是最简单的一种设计模式，在开发当中经常会使用到。今天简单梳理一下。 单例模式的优点有
+1
+2
+3
+4
+可以全局访问
+避免共享资源多重占用
+内存中只有一个实例，节约内存空间
+避免频繁创建销毁，提高性能 单例模式实现方式 1.使用闭包
+1
+2
+3
+4
+5
+6
+7
+8 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -115,9 +130,53 @@ MathJax.Hub.Config({
   </header>
 
 
-  <div class="entry-content">
+  <div class="entry-content"><p>单例模式顾名思义，就是只有一个实例。是最简单的一种设计模式，在开发当中经常会使用到。今天简单梳理一下。</p>
+
+<p>单例模式的优点有</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">可以全局访问
+</span><span class="line">避免共享资源多重占用
+</span><span class="line">内存中只有一个实例，节约内存空间
+</span><span class="line">避免频繁创建销毁，提高性能</span></code></pre></td></tr></table></div></figure>
+
+<p>单例模式实现方式</p>
+
+<p>1.使用闭包</p>
+<figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+</pre></td><td class="code"><pre><code class="js"><span class="line"><span class="kd">var</span> <span class="nx">Singleton</span> <span class="o">=</span> <span class="p">(()</span><span class="o">=&gt;</span><span class="p">{</span>
+</span><span class="line">  <span class="kd">var</span> <span class="nx">instance</span><span class="p">;</span>
+</span><span class="line">  <span class="kd">var</span> <span class="nx">_this</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class="line">  <span class="k">return</span> <span class="p">{</span>
+</span><span class="line">      <span class="nx">getInstance</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class="line">          <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">instance</span> <span class="o">!==</span> <span class="s2">&quot;object&quot;</span><span class="p">){</span>
+</span><span class="line">              <span class="nx">instance</span> <span class="o">=</span> <span class="nx">_this</span><span class="p">;</span>
+</span><span class="line">          <span class="p">}</span>
+</span><span class="line">          <span class="k">return</span> <span class="nx">instance</span><span class="p">;</span>
+</span><span class="line">      <span class="p">}</span>
+</span><span class="line">  <span class="p">}</span>
+</span><span class="line"><span class="p">})()</span>
+</span></code></pre></td></tr></table></div></figure>
+
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2018/02/11/javascriptdan-li-mo-shi/">阅读更多-></a>
+    </footer>
   
 
 
@@ -589,6 +648,7 @@ MathJax.Hub.Config({
 <li class='category'><a href='/blog/categories/database/'>database (1)</a></li>
 <li class='category'><a href='/blog/categories/github/'>github (2)</a></li>
 <li class='category'><a href='/blog/categories/ionic/'>ionic (1)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (1)</a></li>
 <li class='category'><a href='/blog/categories/test/'>test (1)</a></li>
 <li class='category'><a href='/blog/categories/web/'>web (3)</a></li>
 
