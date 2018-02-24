@@ -4,7 +4,7 @@
   <title><![CDATA[遗忘日记]]></title>
   <link href="http://niuniuzh.github.io/atom.xml" rel="self"/>
   <link href="http://niuniuzh.github.io/"/>
-  <updated>2018-02-14T16:28:25+08:00</updated>
+  <updated>2018-02-24T14:48:25+08:00</updated>
   <id>http://niuniuzh.github.io/</id>
   <author>
     <name><![CDATA[niuniuzh]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[CSS Transition介绍]]></title>
+    <link href="http://niuniuzh.github.io/blog/2018/02/15/css-transitionjie-shao/"/>
+    <updated>2018-02-15T13:48:20+08:00</updated>
+    <id>http://niuniuzh.github.io/blog/2018/02/15/css-transitionjie-shao</id>
+    <content type="html"><![CDATA[<p>CSS3 transition属性,其实就是动画。平滑的改变CSS的值。
+大部分属性都可以使用CSS transition，<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">Animatable CSS properties</a></p>
+
+<!-- more -->
+
+<p>transition CSS 属性是一个简写属性，用于 transition-property, transition-duration, transition-timing-function, 和 transition-delay。</p>
+
+<p>transition-property:指定过渡的属性值，多个属性值可以逗号隔开。</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">transition-property: width, height, background-color, transform;</span></code></pre></td></tr></table></div></figure>
+
+<p>transition-duration:指定这个过渡的持续时间,如果两个数量不匹配，就截取少的那一个。</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">transition-property: width, height, background-color, transform;
+</span><span class="line">tansition-duration: 2s, 1s, 3s, 5s;</span></code></pre></td></tr></table></div></figure>
+
+<p>transition-delay:延迟过渡时间,属性改变到变换开始之间的间隔时间</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">transition-delay: 5s</span></code></pre></td></tr></table></div></figure>
+
+<p>transition-timing-function:指定过渡动画缓动类型，有ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(),函数改变的变换过程，不会改变结果。</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">transition-timing-function: ease;
+</span><span class="line">transition-timing-function: linear;</span></code></pre></td></tr></table></div></figure>
+
+<p>更多讯息<a href="https://www.w3.org/TR/css-transitions-1/">CSS Transtions</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[JavaScript单例模式]]></title>
