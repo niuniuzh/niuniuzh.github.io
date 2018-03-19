@@ -4,7 +4,7 @@
   <title><![CDATA[遗忘日记]]></title>
   <link href="http://niuniuzh.github.io/atom.xml" rel="self"/>
   <link href="http://niuniuzh.github.io/"/>
-  <updated>2018-02-24T14:48:25+08:00</updated>
+  <updated>2018-03-19T23:06:46+08:00</updated>
   <id>http://niuniuzh.github.io/</id>
   <author>
     <name><![CDATA[niuniuzh]]></name>
@@ -167,11 +167,11 @@
 </span><span class="line">img3{width:100px;border-color:blue;transform:scale(1.2,0.8);}
 </span><span class="line">img4{width:100px;border-color:rebeccapurple;transform:skew(20deg,30deg);}</span></code></pre></td></tr></table></div></figure>
 <div style="display:flex;justify-content: space-around;padding-bottom:30px;">
-    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;border-color:red;" />
-    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;border-color:yellow;transform:rotate(20deg);" />
-    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;border-color:green;transform:translate(20px, 20px);" />
-    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;border-color:blue;transform:scale(1.2,0.8)" />
-    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;border-color:rebeccapurple;transform:skew(20deg,30deg)" />
+    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;height:100px;border-color:red;" />
+    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;height:100px;border-color:yellow;transform:rotate(20deg);" />
+    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;height:100px;border-color:green;transform:translate(20px, 20px);" />
+    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;height:100px;border-color:blue;transform:scale(1.2,0.8)" />
+    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;height:100px;border-color:rebeccapurple;transform:skew(20deg,30deg)" />
 </div>
 
 <!-- more -->

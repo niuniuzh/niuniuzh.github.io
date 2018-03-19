@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Css | 遗忘日记]]></title>
   <link href="http://niuniuzh.github.io/blog/categories/css/atom.xml" rel="self"/>
   <link href="http://niuniuzh.github.io/"/>
-  <updated>2018-02-24T14:48:25+08:00</updated>
+  <updated>2018-03-19T23:06:46+08:00</updated>
   <id>http://niuniuzh.github.io/</id>
   <author>
     <name><![CDATA[niuniuzh]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[CSS Transition介绍]]></title>
+    <link href="http://niuniuzh.github.io/blog/2018/02/15/css-transitionjie-shao/"/>
+    <updated>2018-02-15T13:48:20+08:00</updated>
+    <id>http://niuniuzh.github.io/blog/2018/02/15/css-transitionjie-shao</id>
+    <content type="html"><![CDATA[<p>CSS3 transition属性,其实就是动画。平滑的改变CSS的值。
+大部分属性都可以使用CSS transition，<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">Animatable CSS properties</a></p>
+
+<!-- more -->
+
+<p>transition CSS 属性是一个简写属性，用于 transition-property, transition-duration, transition-timing-function, 和 transition-delay。</p>
+
+<p>transition-property:指定过渡的属性值，多个属性值可以逗号隔开。
+<code>
+transition-property: width, height, background-color, transform;
+</code></p>
+
+<p>transition-duration:指定这个过渡的持续时间,如果两个数量不匹配，就截取少的那一个。
+<code>
+transition-property: width, height, background-color, transform;
+tansition-duration: 2s, 1s, 3s, 5s;
+</code></p>
+
+<p>transition-delay:延迟过渡时间,属性改变到变换开始之间的间隔时间
+<code>
+transition-delay: 5s
+</code></p>
+
+<p>transition-timing-function:指定过渡动画缓动类型，有ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(),函数改变的变换过程，不会改变结果。
+<code>
+transition-timing-function: ease;
+transition-timing-function: linear;
+</code></p>
+
+<p>更多讯息<a href="https://www.w3.org/TR/css-transitions-1/">CSS Transtions</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[学习CSS Transform]]></title>
@@ -28,11 +66,11 @@ img3{width:100px;border-color:blue;transform:scale(1.2,0.8);}
 img4{width:100px;border-color:rebeccapurple;transform:skew(20deg,30deg);}
 </code></p>
 <div style="display:flex;justify-content: space-around;padding-bottom:30px;">
-    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;border-color:red;" />
-    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;border-color:yellow;transform:rotate(20deg);" />
-    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;border-color:green;transform:translate(20px, 20px);" />
-    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;border-color:blue;transform:scale(1.2,0.8)" />
-    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;border-color:rebeccapurple;transform:skew(20deg,30deg)" />
+    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;height:100px;border-color:red;" />
+    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;height:100px;border-color:yellow;transform:rotate(20deg);" />
+    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;height:100px;border-color:green;transform:translate(20px, 20px);" />
+    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;height:100px;border-color:blue;transform:scale(1.2,0.8)" />
+    <img src="http://niuniuzh.github.io/images/github.png" style="width:100px;height:100px;border-color:rebeccapurple;transform:skew(20deg,30deg)" />
 </div>
 
 <!-- more -->
