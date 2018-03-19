@@ -17,11 +17,11 @@ img3{width:100px;border-color:blue;transform:scale(1.2,0.8);}
 img4{width:100px;border-color:rebeccapurple;transform:skew(20deg,30deg);}
 ```
 <div style="display:flex;justify-content: space-around;padding-bottom:30px;">
-    <img src="/images/github.png" style="width:100px;border-color:red;">
-    <img src="/images/github.png" style="width:100px;border-color:yellow;transform:rotate(20deg);">
-    <img src="/images/github.png" style="width:100px;border-color:green;transform:translate(20px, 20px);">
-    <img src="/images/github.png" style="width:100px;border-color:blue;transform:scale(1.2,0.8)">
-    <img src="/images/github.png" style="width:100px;border-color:rebeccapurple;transform:skew(20deg,30deg)">
+    <img src="/images/github.png" style="width:100px;height:100px;border-color:red;">
+    <img src="/images/github.png" style="width:100px;height:100px;border-color:yellow;transform:rotate(20deg);">
+    <img src="/images/github.png" style="width:100px;height:100px;border-color:green;transform:translate(20px, 20px);">
+    <img src="/images/github.png" style="width:100px;height:100px;border-color:blue;transform:scale(1.2,0.8)">
+    <img src="/images/github.png" style="width:100px;height:100px;border-color:rebeccapurple;transform:skew(20deg,30deg)">
 </div>
 
 <!-- more -->

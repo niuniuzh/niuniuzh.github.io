@@ -3,7 +3,7 @@ layout: post
 title: "CSS Transition介绍"
 date: 2018-02-15 13:48:20 +0800
 comments: true
-categories: 
+categories: css
 ---
 
 CSS3 transition属性,其实就是动画。平滑的改变CSS的值。
