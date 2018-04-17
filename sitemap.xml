@@ -45,10 +45,10 @@
 <lastmod>2016-08-16T22:34:26+08:00</lastmod>
 </url>
 <url>
-<loc>http://niuniuzh.github.io/</loc>
+<loc>http://niuniuzh.github.io/blog/archives/</loc>
 </url>
 <url>
-<loc>http://niuniuzh.github.io/blog/archives/</loc>
+<loc>http://niuniuzh.github.io/</loc>
 </url>
 <url>
 <loc>http://niuniuzh.github.io/about/</loc>
@@ -73,5 +73,8 @@
 </url>
 <url>
 <loc>http://niuniuzh.github.io/blog/categories/javascript/</loc>
+</url>
+<url>
+<loc>http://niuniuzh.github.io/posts/2/</loc>
 </url>
 </urlset>

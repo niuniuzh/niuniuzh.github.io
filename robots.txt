@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://niuniuzh.github.io/sitemap.xml 
