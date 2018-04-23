@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Css | 遗忘日记]]></title>
   <link href="http://niuniuzh.github.io/blog/categories/css/atom.xml" rel="self"/>
   <link href="http://niuniuzh.github.io/"/>
-  <updated>2018-04-17T18:07:19+08:00</updated>
+  <updated>2018-04-23T22:14:48+08:00</updated>
   <id>http://niuniuzh.github.io/</id>
   <author>
     <name><![CDATA[niuniuzh]]></name>
@@ -100,6 +100,34 @@
 <span class='line-number'>77</span>
 <span class='line-number'>78</span>
 <span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>@keyframes spin {
 </span><span class='line'>    0% {
 </span><span class='line'>        transform: rotate(-90deg);
@@ -118,7 +146,7 @@
 </span><span class='line'>    transform: rotate(-90deg);
 </span><span class='line'>} } .avatar{
 </span><span class='line'>animation: spin 10s infinite linear;
-</span><span class='line'>transform-origin: 50% 150px; } ```
+</span><span class='line'>transform-origin: 50% 150px; } ``` &lt;!--more--&gt;
 </span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
 </span><span class='line'>
 </span><span class='line'>&lt;style&gt;
@@ -165,6 +193,34 @@
 </span><span class='line'>    animation: spin 10s infinite linear;
 </span><span class='line'>    transform-origin: 50% 150px;
 </span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>@keyframes single-spin {
+</span><span class='line'>    0% {
+</span><span class='line'>        transform: translateY(-50%) translateY(150px) rotate(-90deg) translateY(-150px) translateY(50%)
+</span><span class='line'>        rotate(90deg);
+</span><span class='line'>    }
+</span><span class='line'>    25% {
+</span><span class='line'>        transform: translateY(-50%) translateY(150px) rotate(0deg) translateY(-150px) translateY(50%)
+</span><span class='line'>        rotate(0deg);
+</span><span class='line'>    }
+</span><span class='line'>    50% {
+</span><span class='line'>        transform: translateY(-50%) translateY(150px) rotate(90deg) translateY(-150px) translateY(50%)
+</span><span class='line'>        rotate(-90deg);
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    75% {
+</span><span class='line'>        transform: translateY(-50%) translateY(150px) rotate(0deg) translateY(-150px) translateY(50%)
+</span><span class='line'>        rotate(0deg);
+</span><span class='line'>    }
+</span><span class='line'>    100% {
+</span><span class='line'>        transform: translateY(-50%) translateY(150px) rotate(-90deg) translateY(-150px) translateY(50%)
+</span><span class='line'>        rotate(90deg);
+</span><span class='line'>    }
+</span><span class='line'>}
+</span><span class='line'>.single-avatar {
+</span><span class='line'>    animation: single-spin 10s infinite linear;
+</span><span class='line'>}
+</span><span class='line'>
 </span><span class='line'>&lt;/style&gt;
 </span><span class='line'>
 </span><span class='line'>&lt;div style="height:150px;border:solid 1px #888;position:relative;width:100%;"&gt;
@@ -236,6 +292,50 @@
 
 <p>利用前面的原理，我们把前面两个元素的transform-origin的差异抹去（全部变为transform-origin: 0 0;的等效），转移到transform上：</p>
 
+<p>```
+@keyframes spin{
+    0% {
+        transform: translate(50%,150px) rotate(-90deg) translate(-50%,-150px);
+    }
+    25% {
+        transform: translate(50%,150px) rotate(0deg) translate(-50%,-150px);
+    }
+    50% {
+        transform: translate(50%,150px) rotate(90deg) translate(-50%,-150px);
+    }</p>
+
+<pre><code>75% {
+    transform: translate(50%,150px) rotate(0deg) translate(-50%,-150px);
+}
+100% {
+    transform: translate(50%,150px) rotate(-90deg) translate(-50%,-150px);
+} } @keyframes spin-reverse {
+0% {
+    transform: translate(50%,50%) rotate(90deg) translate(-50%,-50%);
+}
+25% {
+    transform: translate(50%,50%) rotate(0deg) translate(-50%,-50%);
+}
+50% {
+    transform: translate(50%,50%) rotate(-90deg) translate(-50%,-50%);
+}
+
+75% {
+    transform: translate(50%,50%) rotate(0deg) translate(-50%,-50%);
+}
+100% {
+    transform: translate(50%,50%) rotate(90deg) translate(-50%,-50%);
+} } .avatar {
+animation: spin 10s infinite linear; } .avatar &gt; img {
+animation: spin-reverse 10s infinite linear; } ``` 现在这段代码中，两个元素的transform-origin已经一致了，然后我们根据变换函数合并规则，将它们集中到一个元素上， 此时html重新变为单个元素：
+</code></pre>
+
+<div style="height:150px;border:solid 1px #888;position:relative;width:100%;">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:100%;">
+         <circle cx="50%" cy="150" r="100" stroke="green" fill="transparent" stroke-width="2"></circle>
+    </svg>
+    <img src="http://niuniuzh.github.io/images/github.png" class="single-avatar" style="width:100px;height:100px;border-radius: 50%; margin: 0 auto; display: block;" />
+</div>
 ]]></content>
   </entry>
   

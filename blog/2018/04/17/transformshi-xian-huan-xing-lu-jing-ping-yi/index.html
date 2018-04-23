@@ -181,6 +181,7 @@ MathJax.Hub.Config({
 </span><span class="line">    animation: spin 10s infinite linear;
 </span><span class="line">    transform-origin: 50% 150px;
 </span><span class="line">}</span></code></pre></td></tr></table></div></figure>
+<!--more-->
 
 <style>
 @keyframes spin {
@@ -226,6 +227,34 @@ MathJax.Hub.Config({
     animation: spin 10s infinite linear;
     transform-origin: 50% 150px;
 }
+
+@keyframes single-spin {
+    0% {
+        transform: translateY(-50%) translateY(150px) rotate(-90deg) translateY(-150px) translateY(50%)
+        rotate(90deg);
+    }
+    25% {
+        transform: translateY(-50%) translateY(150px) rotate(0deg) translateY(-150px) translateY(50%)
+        rotate(0deg);
+    }
+    50% {
+        transform: translateY(-50%) translateY(150px) rotate(90deg) translateY(-150px) translateY(50%)
+        rotate(-90deg);
+    }
+
+    75% {
+        transform: translateY(-50%) translateY(150px) rotate(0deg) translateY(-150px) translateY(50%)
+        rotate(0deg);
+    }
+    100% {
+        transform: translateY(-50%) translateY(150px) rotate(-90deg) translateY(-150px) translateY(50%)
+        rotate(90deg);
+    }
+}
+.single-avatar {
+    animation: single-spin 10s infinite linear;
+}
+
 </style>
 
 <div style="height:150px;border:solid 1px #888;position:relative;width:100%;">
@@ -302,6 +331,99 @@ MathJax.Hub.Config({
 
 <p>利用前面的原理，我们把前面两个元素的transform-origin的差异抹去（全部变为transform-origin: 0 0;的等效），转移到transform上：</p>
 
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+<span class="line-number">38</span>
+<span class="line-number">39</span>
+<span class="line-number">40</span>
+<span class="line-number">41</span>
+<span class="line-number">42</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">@keyframes spin{
+</span><span class="line">    0% {
+</span><span class="line">        transform: translate(50%,150px) rotate(-90deg) translate(-50%,-150px);
+</span><span class="line">    }
+</span><span class="line">    25% {
+</span><span class="line">        transform: translate(50%,150px) rotate(0deg) translate(-50%,-150px);
+</span><span class="line">    }
+</span><span class="line">    50% {
+</span><span class="line">        transform: translate(50%,150px) rotate(90deg) translate(-50%,-150px);
+</span><span class="line">    }
+</span><span class="line">
+</span><span class="line">    75% {
+</span><span class="line">        transform: translate(50%,150px) rotate(0deg) translate(-50%,-150px);
+</span><span class="line">    }
+</span><span class="line">    100% {
+</span><span class="line">        transform: translate(50%,150px) rotate(-90deg) translate(-50%,-150px);
+</span><span class="line">    }
+</span><span class="line">}
+</span><span class="line">@keyframes spin-reverse {
+</span><span class="line">    0% {
+</span><span class="line">        transform: translate(50%,50%) rotate(90deg) translate(-50%,-50%);
+</span><span class="line">    }
+</span><span class="line">    25% {
+</span><span class="line">        transform: translate(50%,50%) rotate(0deg) translate(-50%,-50%);
+</span><span class="line">    }
+</span><span class="line">    50% {
+</span><span class="line">        transform: translate(50%,50%) rotate(-90deg) translate(-50%,-50%);
+</span><span class="line">    }
+</span><span class="line">
+</span><span class="line">    75% {
+</span><span class="line">        transform: translate(50%,50%) rotate(0deg) translate(-50%,-50%);
+</span><span class="line">    }
+</span><span class="line">    100% {
+</span><span class="line">        transform: translate(50%,50%) rotate(90deg) translate(-50%,-50%);
+</span><span class="line">    }
+</span><span class="line">}
+</span><span class="line">.avatar {
+</span><span class="line">    animation: spin 10s infinite linear;
+</span><span class="line">}
+</span><span class="line">.avatar &gt; img {
+</span><span class="line">    animation: spin-reverse 10s infinite linear;
+</span><span class="line">}</span></code></pre></td></tr></table></div></figure>
+<p>现在这段代码中，两个元素的transform-origin已经一致了，然后我们根据变换函数合并规则，将它们集中到一个元素上，
+此时html重新变为单个元素：</p>
+
+<div style="height:150px;border:solid 1px #888;position:relative;width:100%;">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:100%;">
+         <circle cx="50%" cy="150" r="100" stroke="green" fill="transparent" stroke-width="2"></circle>
+    </svg>
+    <img src="/images/github.png" class="single-avatar" style="width:100px;height:100px;border-radius: 50%; margin: 0 auto; display: block;" />
+</div>
 </div>
 
 
