@@ -33,6 +33,7 @@ categories: css
     transform-origin: 50% 150px;
 }
 ```
+<!--more-->
 
 <style>
 @keyframes spin {
@@ -78,6 +79,34 @@ categories: css
     animation: spin 10s infinite linear;
     transform-origin: 50% 150px;
 }
+
+@keyframes single-spin {
+    0% {
+        transform: translateY(-50%) translateY(150px) rotate(-90deg) translateY(-150px) translateY(50%)
+        rotate(90deg);
+    }
+    25% {
+        transform: translateY(-50%) translateY(150px) rotate(0deg) translateY(-150px) translateY(50%)
+        rotate(0deg);
+    }
+    50% {
+        transform: translateY(-50%) translateY(150px) rotate(90deg) translateY(-150px) translateY(50%)
+        rotate(-90deg);
+    }
+
+    75% {
+        transform: translateY(-50%) translateY(150px) rotate(0deg) translateY(-150px) translateY(50%)
+        rotate(0deg);
+    }
+    100% {
+        transform: translateY(-50%) translateY(150px) rotate(-90deg) translateY(-150px) translateY(50%)
+        rotate(90deg);
+    }
+}
+.single-avatar {
+    animation: single-spin 10s infinite linear;
+}
+
 </style>
 <div style="height:150px;border:solid 1px #888;position:relative;width:100%;">
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:100%;">
@@ -145,3 +174,56 @@ transform-origin在这里被表述为两次方向相反的平移，也就是说�
 
 利用前面的原理，我们把前面两个元素的transform-origin的差异抹去（全部变为transform-origin: 0 0;的等效），转移到transform上：
 
+```
+@keyframes spin{
+    0% {
+        transform: translate(50%,150px) rotate(-90deg) translate(-50%,-150px);
+    }
+    25% {
+        transform: translate(50%,150px) rotate(0deg) translate(-50%,-150px);
+    }
+    50% {
+        transform: translate(50%,150px) rotate(90deg) translate(-50%,-150px);
+    }
+
+    75% {
+        transform: translate(50%,150px) rotate(0deg) translate(-50%,-150px);
+    }
+    100% {
+        transform: translate(50%,150px) rotate(-90deg) translate(-50%,-150px);
+    }
+}
+@keyframes spin-reverse {
+    0% {
+        transform: translate(50%,50%) rotate(90deg) translate(-50%,-50%);
+    }
+    25% {
+        transform: translate(50%,50%) rotate(0deg) translate(-50%,-50%);
+    }
+    50% {
+        transform: translate(50%,50%) rotate(-90deg) translate(-50%,-50%);
+    }
+
+    75% {
+        transform: translate(50%,50%) rotate(0deg) translate(-50%,-50%);
+    }
+    100% {
+        transform: translate(50%,50%) rotate(90deg) translate(-50%,-50%);
+    }
+}
+.avatar {
+    animation: spin 10s infinite linear;
+}
+.avatar > img {
+    animation: spin-reverse 10s infinite linear;
+}
+```
+现在这段代码中，两个元素的transform-origin已经一致了，然后我们根据变换函数合并规则，将它们集中到一个元素上，
+此时html重新变为单个元素：
+
+<div style="height:150px;border:solid 1px #888;position:relative;width:100%;">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:100%;">
+         <circle cx="50%" cy="150" r="100" stroke="green" fill="transparent" stroke-width="2"></circle>
+    </svg>
+    <img src="/images/github.png" class='single-avatar' style="width:100px;height:100px;border-radius: 50%; margin: 0 auto; display: block;">
+</div>
