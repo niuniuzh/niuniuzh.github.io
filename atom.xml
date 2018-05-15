@@ -4,7 +4,7 @@
   <title><![CDATA[遗忘日记]]></title>
   <link href="http://niuniuzh.github.io/atom.xml" rel="self"/>
   <link href="http://niuniuzh.github.io/"/>
-  <updated>2018-04-23T22:14:48+08:00</updated>
+  <updated>2018-05-15T22:37:59+08:00</updated>
   <id>http://niuniuzh.github.io/</id>
   <author>
     <name><![CDATA[niuniuzh]]></name>
@@ -12,6 +12,166 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Webpack Install]]></title>
+    <link href="http://niuniuzh.github.io/blog/2018/05/15/webpack-install/"/>
+    <updated>2018-05-15T20:32:33+08:00</updated>
+    <id>http://niuniuzh.github.io/blog/2018/05/15/webpack-install</id>
+    <content type="html"><![CDATA[<p>webpack是js项目的一个打包工具，可以分割代码，按需加载，提高启动速度。</p>
+
+<p>webpack产生背景：</p>
+
+<ul>
+  <li>多js文件下全局对象的冲突；</li>
+  <li>模块的加载顺序问题；</li>
+  <li>解决模块或者库的依赖问题；</li>
+  <li>模块过多难以管理；</li>
+</ul>
+
+<!--more-->
+
+<p>webpack的作用：</p>
+
+<ul>
+  <li>将所有的依赖拆分成块且按需加载</li>
+  <li>首屏加载耗时少</li>
+  <li>所有的静态文件都是一个模块（css和图片等静态文件）</li>
+  <li>第三方库也可以作为一个模块被加载</li>
+  <li>自定义程度高，你可以按需自定义打包的整个流程</li>
+  <li>适用于大project的开发场景</li>
+</ul>
+
+<h2 id="section">安装</h2>
+
+<p>webpack使用npm安装，</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">npm install -g webpack
+</span><span class="line">npm install webpack --save-dev</span></code></pre></td></tr></table></div></figure>
+
+<h2 id="section-1">配置</h2>
+
+<p>webpack默认使用当前目录下的webpack.config.js,也可以通过命令指定自定义配置文件。</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">webpack --config webpack.my.config.js
+</span><span class="line">webpack --config webpack.config.js</span></code></pre></td></tr></table></div></figure>
+
+<h2 id="section-2">配置简介</h2>
+
+<p>webpack配置文件大致上分几个部分，entry,output,loaders,plugins,mode。</p>
+
+<h3 id="entry">entry</h3>
+<p>entry用来指定打包的入口，可以有多个入口。</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">module.exports = {
+</span><span class="line">    entry:'./index.js'
+</span><span class="line">    output:{
+</span><span class="line">        filename:'bundle.js',
+</span><span class="line">        path:__dirname
+</span><span class="line">        }
+</span><span class="line">}</span></code></pre></td></tr></table></div></figure>
+<p>### output
+output用来指定打包后文件名字和保存的位置，也可以有多个。</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">module.exports = {
+</span><span class="line">    entry:['./index.js','./a.js']
+</span><span class="line">    output:{
+</span><span class="line">        filename:'[name].js',
+</span><span class="line">        path:__dirname
+</span><span class="line">        }
+</span><span class="line">}</span></code></pre></td></tr></table></div></figure>
+
+<h3 id="loaders">loaders</h3>
+<p>loaders可以将任意类型的模块转换为js代码的模块，然后在打包，拆分，加载。
+比较常用的有css-loader,style-loader.使用之前要先安装，
+npm install –save-dev css-loader style-loader.
+test:正则表达式，loaders加载解析要用的loaders.</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">module.exports = {
+</span><span class="line">    entry:['./index.js','./a.js']
+</span><span class="line">    output:{
+</span><span class="line">        filename:'[name].js',
+</span><span class="line">        path:__dirname
+</span><span class="line">        },
+</span><span class="line">    module:{
+</span><span class="line">        loaders:{
+</span><span class="line">            test:/\.css$/,
+</span><span class="line">            loaders:['style','css']
+</span><span class="line">        }
+</span><span class="line">    }
+</span><span class="line">}</span></code></pre></td></tr></table></div></figure>
+
+<h3 id="plugins">plugins</h3>
+<p>plugins可以满足，loaders不可以实现的功能，或者不合适在loaders中实现。
+plugins的配置超级简单，在plugins数组中引入要使用的插件，加上配置就ok了。</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
+</span><span class="line">const webpack = require('webpack'); //to access built-in plugins
+</span><span class="line">
+</span><span class="line">const config = {
+</span><span class="line">  module: {
+</span><span class="line">    rules: [
+</span><span class="line">      { test: /\.txt$/, use: 'raw-loader' }
+</span><span class="line">    ]
+</span><span class="line">  },
+</span><span class="line">  plugins: [
+</span><span class="line">    new HtmlWebpackPlugin({template: './src/index.html'})
+</span><span class="line">  ]
+</span><span class="line">};
+</span><span class="line">
+</span><span class="line">module.exports = config;</span></code></pre></td></tr></table></div></figure>
+
+<h3 id="mode">mode</h3>
+<p>mode有三种模式可以设置，development,production,none.默认设置是production.</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">module.exports = {
+</span><span class="line">  mode: 'production'
+</span><span class="line">};</span></code></pre></td></tr></table></div></figure>
+<p>参看<a href="https://webpack.docschina.org/concepts" title="webpack">webpack中文文档</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Transform实现环形路径平移]]></title>
