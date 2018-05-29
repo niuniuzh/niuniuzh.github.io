@@ -9,8 +9,9 @@
   <meta name="author" content="niuniuzh">
 
   
-  <meta name="description" content="loaders
-webpack 可以使用 loader 来预处理文件。这允许你打包除 JavaScript 之外的任何静态资源。 loader 通过在 require() 语句中使用 loadername! 前缀来激活，或者通过 webpack 配置中的正则表达式来自动应用。 ">
+  <meta name="description" content="今天在学习webpack的时候，使用html-webpack-plugin的模板，生成的html始终不能解析。
+不知道是什么问题，之前还是可以解析的。 后来发现删除掉html-loader以后，可以正常解析了。上网查了一下，这个问题还真不少。
+html-webpack- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -93,6 +94,45 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2018/05/29/html-loader-he-html-webpack-plugin-chong-tu/">Html-loader 和 Html-webpack-plugin 冲突</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-05-29T21:51:11+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>9:51 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天在学习webpack的时候，使用html-webpack-plugin的模板，生成的html始终不能解析。
+不知道是什么问题，之前还是可以解析的。</p>
+
+<p>后来发现删除掉html-loader以后，可以正常解析了。上网查了一下，这个问题还真不少。
+html-webpack-plugin解析模板时使用的是lodash来解析，而配置了html-loader后，
+则对html页面会使用html-loader来解析模板文件，因此会导致模板没有解析。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2018/05/29/html-loader-he-html-webpack-plugin-chong-tu/">阅读更多-></a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -546,43 +586,6 @@ MathJax.Hub.Config({
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2017/07/05/20170705/">在ubuntu上安装mysql</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-07-05T12:41:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>12:41 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2 id="ubuntu-mysql">ubuntu 安装mysql</h2>
-<p>1.打开终端输入</p>
-<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo apt install mysql-server mysql-client</span></code></pre></td></tr></table></div></figure>
-<p>然后设置root密码。</p>
-
-<p>2.登录mysal</p>
-<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">mysql -u root -p</span></code></pre></td></tr></table></div></figure>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -598,6 +601,10 @@ MathJax.Hub.Config({
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2018/05/29/html-loader-he-html-webpack-plugin-chong-tu/">Html-loader 和 Html-webpack-plugin 冲突</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2018/05/29/webpack-loader/">Webpack Loader</a>
       </li>
     
@@ -611,10 +618,6 @@ MathJax.Hub.Config({
     
       <li class="post">
         <a href="/blog/2018/02/15/css-transitionjie-shao/">CSS Transition介绍</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/02/11/javascriptdan-li-mo-shi/">JavaScript单例模式</a>
       </li>
     
   </ul>
@@ -633,7 +636,7 @@ MathJax.Hub.Config({
 <li class='category'><a href='/blog/categories/javascript/'>javascript (1)</a></li>
 <li class='category'><a href='/blog/categories/test/'>test (1)</a></li>
 <li class='category'><a href='/blog/categories/web/'>web (3)</a></li>
-<li class='category'><a href='/blog/categories/webpack/'>webpack (2)</a></li>
+<li class='category'><a href='/blog/categories/webpack/'>webpack (3)</a></li>
 
   </ul>
 </section>

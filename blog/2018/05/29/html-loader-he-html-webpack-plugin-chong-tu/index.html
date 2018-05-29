@@ -5,18 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>搭建git服务器 - 遗忘日记</title>
+  <title>Html-loader 和 Html-webpack-plugin 冲突 - 遗忘日记</title>
   <meta name="author" content="niuniuzh">
 
   
-  <meta name="description" content="在ubuntu上搭建git服务器
-1.安装git和ssh.
-1
-2
-sudo apt install git
-sudo apt install openssh-server openssh-client 2.创建一个git用户，用来管理git服务器,设置密码.
-1
-sudo adduser git &hellip;">
+  <meta name="description" content="今天在学习webpack的时候，使用html-webpack-plugin的模板，生成的html始终不能解析。
+不知道是什么问题，之前还是可以解析的。 后来发现删除掉html-loader以后，可以正常解析了。上网查了一下，这个问题还真不少。
+html-webpack- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -25,7 +20,7 @@ sudo adduser git &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://niuniuzh.github.io/blog/2017/11/18/da-jian-gitfu-wu-qi/">
+  <link rel="canonical" href="http://niuniuzh.github.io/blog/2018/05/29/html-loader-he-html-webpack-plugin-chong-tu/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="遗忘日记" type="application/atom+xml">
@@ -102,7 +97,7 @@ MathJax.Hub.Config({
   
   <header>
     
-      <h1 class="entry-title">搭建git服务器</h1>
+      <h1 class="entry-title">Html-loader 和 Html-webpack-plugin 冲突</h1>
     
     
       <p class="meta">
@@ -111,72 +106,78 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2017-11-18T12:01:08+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>12:01 pm</span></time>
+<time class='entry-date' datetime='2018-05-29T21:51:11+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>9:51 pm</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h2 id="ubuntugit">在ubuntu上搭建git服务器</h2>
-<p>1.安装git和ssh.</p>
-<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo apt install git
-</span><span class="line">sudo apt install openssh-server openssh-client</span></code></pre></td></tr></table></div></figure>
+<div class="entry-content"><p>今天在学习webpack的时候，使用html-webpack-plugin的模板，生成的html始终不能解析。
+不知道是什么问题，之前还是可以解析的。</p>
 
-<p>2.创建一个git用户，用来管理git服务器,设置密码.</p>
-<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo adduser git</span></code></pre></td></tr></table></div></figure>
-<p>在/home目录下会生成一个git文件夹.
-<!--more--></p>
+<p>后来发现删除掉html-loader以后，可以正常解析了。上网查了一下，这个问题还真不少。
+html-webpack-plugin解析模板时使用的是lodash来解析，而配置了html-loader后，
+则对html页面会使用html-loader来解析模板文件，因此会导致模板没有解析。</p>
 
-<p>3.创建ssh证书认证文件,临时修改authorized_keys文件的权限,并把需要访问git服务器的客户端公钥id_rsa.pub的内容复制到authorized_keys文件</p>
-<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo mkdir /home/git/.ssh
-</span><span class="line">sudo touch /home/git/.ssh/authorized_keys
-</span><span class="line">sudo chmod 777 /home/git/.ssh/authorized_keys
-</span><span class="line">cat xxx &gt;&gt; authorized_keys</span></code></pre></td></tr></table></div></figure>
+<!--more-->
 
-<p>4.如何生成ssh-keys</p>
-<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">ssh-keygen -t rsa -C "email address"</span></code></pre></td></tr></table></div></figure>
+<p>方法1：亲测,添加exclude排除index.html模板</p>
 
-<p>5.修改authorized_keys文件的权限,修改所属git</p>
 <figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
 <span class="line-number">5</span>
 <span class="line-number">6</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo chmod 700 /home/git
-</span><span class="line">sudo chmod 700 /home/git/.ssh
-</span><span class="line">sudo chmod 600 /home/git/authorized_keys
-</span><span class="line">sudo chown -R git:git /home/git
-</span><span class="line">sudo chown -R git:git /home/git/.ssh
-</span><span class="line">sudo chown -R git:git /home/git/.ssh/authorized_keys</span></code></pre></td></tr></table></div></figure>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">var htmlWebpackPlugin = require('html-webpack-plugin');
+</span><span class="line">var path = require('path');
+</span><span class="line">module.exports = {
+</span><span class="line">    module: {
+</span><span class="line">        rules: [
+</span><span class="line">            {
+</span><span class="line">                test: /\.html$/,
+</span><span class="line">                exclude: path.resolve(__dirname,'index.html'),
+</span><span class="line">                use: {
+</span><span class="line">                    loader: 'html-loader',
+</span><span class="line">                }
+</span><span class="line">            }
+</span><span class="line">        ]
+</span><span class="line">    },
+</span><span class="line">    plugins: [
+</span><span class="line">        new htmlWebpackPlugin({
+</span><span class="line">            filename: 'index.html',
+</span><span class="line">            template: 'index.html',
+</span><span class="line">            inject: 'body',
+</span><span class="line">            title: 'web app test'
+</span><span class="line">        })
+</span><span class="line">    ]
+</span><span class="line">};</span></code></pre></td></tr></table></div></figure>
 
-<p>6.禁用shell登录.出于安全考虑，第二步创建的git用户不允许登录shell，这可以通过编辑/etc/passwd文件完成.</p>
-<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">git:x:1001:1001:,,,:/home/git:/bin/bash
-</span><span class="line">git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</span></code></pre></td></tr></table></div></figure>
+<p>方法2：去掉webpack.config.js文件中配置的全局html-loader</p>
 
-<p>7.初始化Git仓库</p>
-<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo mkdir /home/xxxx
-</span><span class="line">sudo git init --bare test.git
-</span><span class="line">sudo chown -R git:git /home/xxxx/test.git</span></code></pre></td></tr></table></div></figure>
+<p>这样html模版文件就不会被html-loader解析，我们可以使用ejs语法嵌入其他html页面和图片资源。因为没了全局的html-loader解析html文件，使用ejs语法嵌入的资源返回的是ejs代码，还需要使用html-loader来解析成html代码。</p>
 
-<p>8.通过git clone命令克隆远程仓库了，在各自的电脑上运行</p>
-<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">git clone git@192.168.1.100:/home/xxxx/test.git</span></code></pre></td></tr></table></div></figure>
+<p>（html-loader!）表示引用html-loader这个加载器来解析</p>
 
+<p>&lt;%= require(‘html-loader!../layout/left.html’) %&gt;</p>
 </div>
 
 
@@ -192,12 +193,12 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2017-11-18T12:01:08+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>12:01 pm</span></time>
+<time class='entry-date' datetime='2018-05-29T21:51:11+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>9:51 pm</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/github/'>github</a>
+    <a class='category' href='/blog/categories/webpack/'>webpack</a>
   
 </span>
 
@@ -213,10 +214,8 @@ MathJax.Hub.Config({
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2017/08/29/learn-github/" title="Previous Post: Learn Github">&laquo; Learn Github</a>
+        <a class="basic-alignment left" href="/blog/2018/05/29/webpack-loader/" title="Previous Post: webpack loader">&laquo; webpack loader</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2017/12/12/ubuntuda-jian-ionichuan-jing/" title="Next Post: ubuntu搭建ionic环境">ubuntu搭建ionic环境 &raquo;</a>
       
     </p>
   </footer>
@@ -312,8 +311,8 @@ MathJax.Hub.Config({
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://niuniuzh.github.io/blog/2017/11/18/da-jian-gitfu-wu-qi/';
-        var disqus_url = 'http://niuniuzh.github.io/blog/2017/11/18/da-jian-gitfu-wu-qi/';
+        var disqus_identifier = 'http://niuniuzh.github.io/blog/2018/05/29/html-loader-he-html-webpack-plugin-chong-tu/';
+        var disqus_url = 'http://niuniuzh.github.io/blog/2018/05/29/html-loader-he-html-webpack-plugin-chong-tu/';
         var disqus_script = 'embed.js';
       
     (function () {

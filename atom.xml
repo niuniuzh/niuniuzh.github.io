@@ -4,7 +4,7 @@
   <title><![CDATA[遗忘日记]]></title>
   <link href="http://niuniuzh.github.io/atom.xml" rel="self"/>
   <link href="http://niuniuzh.github.io/"/>
-  <updated>2018-05-29T10:57:20+08:00</updated>
+  <updated>2018-05-29T22:15:49+08:00</updated>
   <id>http://niuniuzh.github.io/</id>
   <author>
     <name><![CDATA[niuniuzh]]></name>
@@ -12,6 +12,79 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Html-loader 和 Html-webpack-plugin 冲突]]></title>
+    <link href="http://niuniuzh.github.io/blog/2018/05/29/html-loader-he-html-webpack-plugin-chong-tu/"/>
+    <updated>2018-05-29T21:51:11+08:00</updated>
+    <id>http://niuniuzh.github.io/blog/2018/05/29/html-loader-he-html-webpack-plugin-chong-tu</id>
+    <content type="html"><![CDATA[<p>今天在学习webpack的时候，使用html-webpack-plugin的模板，生成的html始终不能解析。
+不知道是什么问题，之前还是可以解析的。</p>
+
+<p>后来发现删除掉html-loader以后，可以正常解析了。上网查了一下，这个问题还真不少。
+html-webpack-plugin解析模板时使用的是lodash来解析，而配置了html-loader后，
+则对html页面会使用html-loader来解析模板文件，因此会导致模板没有解析。</p>
+
+<!--more-->
+
+<p>方法1：亲测,添加exclude排除index.html模板</p>
+
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">var htmlWebpackPlugin = require('html-webpack-plugin');
+</span><span class="line">var path = require('path');
+</span><span class="line">module.exports = {
+</span><span class="line">    module: {
+</span><span class="line">        rules: [
+</span><span class="line">            {
+</span><span class="line">                test: /\.html$/,
+</span><span class="line">                exclude: path.resolve(__dirname,'index.html'),
+</span><span class="line">                use: {
+</span><span class="line">                    loader: 'html-loader',
+</span><span class="line">                }
+</span><span class="line">            }
+</span><span class="line">        ]
+</span><span class="line">    },
+</span><span class="line">    plugins: [
+</span><span class="line">        new htmlWebpackPlugin({
+</span><span class="line">            filename: 'index.html',
+</span><span class="line">            template: 'index.html',
+</span><span class="line">            inject: 'body',
+</span><span class="line">            title: 'web app test'
+</span><span class="line">        })
+</span><span class="line">    ]
+</span><span class="line">};</span></code></pre></td></tr></table></div></figure>
+
+<p>方法2：去掉webpack.config.js文件中配置的全局html-loader</p>
+
+<p>这样html模版文件就不会被html-loader解析，我们可以使用ejs语法嵌入其他html页面和图片资源。因为没了全局的html-loader解析html文件，使用ejs语法嵌入的资源返回的是ejs代码，还需要使用html-loader来解析成html代码。</p>
+
+<p>（html-loader!）表示引用html-loader这个加载器来解析</p>
+
+<p>&lt;%= require(‘html-loader!../layout/left.html’) %&gt;</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Webpack Loader]]></title>
