@@ -5,11 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Css - 遗忘日记</title>
+  <title>Webpack Loader - 遗忘日记</title>
   <meta name="author" content="niuniuzh">
 
   
-  <meta name="description" content="Category: css">
+  <meta name="description" content="loaders
+webpack 可以使用 loader 来预处理文件。这允许你打包除 JavaScript 之外的任何静态资源。 loader 通过在 require() 语句中使用 loadername! 前缀来激活，或者通过 webpack 配置中的正则表达式来自动应用。 使用实例：
+1
+2 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://niuniuzh.github.io/blog/categories/css/">
+  <link rel="canonical" href="http://niuniuzh.github.io/blog/2018/05/29/webpack-loader/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="遗忘日记" type="application/atom+xml">
@@ -91,64 +94,116 @@ MathJax.Hub.Config({
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Css</h1>
+    
+      <h1 class="entry-title">Webpack Loader</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-05-29T09:09:52+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>9:09 am</span></time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><h2 id="loaders">loaders</h2>
+<p>webpack 可以使用 loader 来预处理文件。这允许你打包除 JavaScript 之外的任何静态资源。</p>
 
-  
-  <h2>2018</h2>
+<p>loader 通过在 require() 语句中使用 loadername! 前缀来激活，或者通过 webpack 配置中的正则表达式来自动应用。</p>
 
-<article>
-  
-<h1><a href="/blog/2018/04/17/transformshi-xian-huan-xing-lu-jing-ping-yi/">Transform实现环形路径平移</a></h1>
-<time datetime="2018-04-17T10:20:11+08:00" pubdate><span class='month'>Apr</span> <span class='day'>17</span> <span class='year'>2018</span></time>
+<!--more-->
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/css/'>css</a></span>
-</footer>
+<p>使用实例：</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">module.exports = {
+</span><span class="line">  module: {
+</span><span class="line">    rules: [
+</span><span class="line">      { test: /\.css$/, use: 'css-loader' },
+</span><span class="line">      { test: /\.ts$/, use: 'ts-loader' }，
+</span><span class="line">      exclude: /(node_modules|bower_components)/,
+</span><span class="line">      include: /(src)/
+</span><span class="line">    ]
+</span><span class="line">  }
+</span><span class="line">};</span></code></pre></td></tr></table></div></figure>
 
+<p>{ test: Condition }：匹配特定条件。一般是提供一个正则表达式或正则表达式的数组，但这不是强制的。</p>
 
-</article>
+<p>{ include: Condition }：匹配特定条件。一般是提供一个字符串或者字符串数组，但这不是强制的。</p>
 
+<p>{ exclude: Condition }：排除特定条件。一般是提供一个字符串或字符串数组，但这不是强制的。</p>
 
+<p>{ and: [Condition] }：必须匹配数组中的所有条件</p>
 
-<article>
-  
-<h1><a href="/blog/2018/02/15/css-transitionjie-shao/">CSS Transition介绍</a></h1>
-<time datetime="2018-02-15T13:48:20+08:00" pubdate><span class='month'>Feb</span> <span class='day'>15</span> <span class='year'>2018</span></time>
+<p>{ or: [Condition] }：匹配数组中任何一个条件</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/css/'>css</a></span>
-</footer>
+<p>{ not: [Condition] }：必须排除这个条件</p>
 
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2018/02/11/xue-xi-css-transform/">学习CSS Transform</a></h1>
-<time datetime="2018-02-11T00:30:09+08:00" pubdate><span class='month'>Feb</span> <span class='day'>11</span> <span class='year'>2018</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/css/'>css</a></span>
-</footer>
-
-
-</article>
-
+<p>参考<a href="https://webpack.docschina.org/loaders/" title="loaders">webpack loaders 文档</a></p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">niuniuzh</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2018-05-29T09:09:52+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>9:09 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/webpack/'>webpack</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2018/05/15/webpack-install/" title="Previous Post: webpack install">&laquo; webpack install</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -233,7 +288,10 @@ MathJax.Hub.Config({
       var disqus_shortname = 'niuniuzh';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://niuniuzh.github.io/blog/2018/05/29/webpack-loader/';
+        var disqus_url = 'http://niuniuzh.github.io/blog/2018/05/29/webpack-loader/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

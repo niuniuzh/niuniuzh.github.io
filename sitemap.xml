@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://niuniuzh.github.io/blog/2018/05/29/webpack-loader/</loc>
+<lastmod>2018-05-29T09:09:52+08:00</lastmod>
+</url>
+<url>
 <loc>http://niuniuzh.github.io/blog/2018/05/15/webpack-install/</loc>
 <lastmod>2018-05-15T20:32:33+08:00</lastmod>
 </url>
@@ -53,10 +57,10 @@
 <lastmod>2016-08-16T22:34:26+08:00</lastmod>
 </url>
 <url>
-<loc>http://niuniuzh.github.io/</loc>
+<loc>http://niuniuzh.github.io/blog/archives/</loc>
 </url>
 <url>
-<loc>http://niuniuzh.github.io/blog/archives/</loc>
+<loc>http://niuniuzh.github.io/</loc>
 </url>
 <url>
 <loc>http://niuniuzh.github.io/about/</loc>
@@ -84,5 +88,8 @@
 </url>
 <url>
 <loc>http://niuniuzh.github.io/blog/categories/webpack/</loc>
+</url>
+<url>
+<loc>http://niuniuzh.github.io/posts/2/</loc>
 </url>
 </urlset>

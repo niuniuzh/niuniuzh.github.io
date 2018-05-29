@@ -9,9 +9,14 @@
   <meta name="author" content="niuniuzh">
 
   
-  <meta name="description" content="很早之前，在WINDOWS上搭建好了OCTOPRESS博客，懒死了，没有写一些什么东西，换一台新电脑，装了UBUNTU系统，想要同步一下之前的博客，
-以做备忘。 首先，从GITHUB上面CLONE原来blog的SOURCE分支： 1
-git clone -b source git@github. &hellip;">
+  <meta name="description" content="ubuntu安装shadowsocks
+1.通过PPA源安装，设置PPA源
+1
+2
+3
+sudo add-apt-repository ppa:hzwhuang/ss-qt5
+sudo apt update
+sudo apt install shadowsocks-qt5 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -94,6 +99,60 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2017/05/20/shadowsocks/">在ubuntu上安装shadowsocks</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-05-20T12:15:42+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>20</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>12:15 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="ubuntushadowsocks">ubuntu安装shadowsocks</h2>
+<p>1.通过PPA源安装，设置PPA源</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo add-apt-repository ppa:hzwhuang/ss-qt5
+</span><span class="line">sudo apt update
+</span><span class="line">sudo apt install shadowsocks-qt5</span></code></pre></td></tr></table></div></figure>
+
+<p>shadowsocks配置</p>
+
+<p>1.打开界面，依次填入server address,server port,password,等等。。。</p>
+
+<p>2连接，把程序启动自动连接勾上，每次启动就会自动连接了</p>
+
+<p>配置全局代理</p>
+
+<p>1.安装GenPAC</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo pip install genpac
+</span><span class="line">sudo pip install --upgrade genpac</span></code></pre></td></tr></table></div></figure>
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2017/05/20/shadowsocks/">阅读更多-></a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -255,6 +314,10 @@ MathJax.Hub.Config({
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2018/05/29/webpack-loader/">Webpack Loader</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2018/05/15/webpack-install/">Webpack Install</a>
       </li>
     
@@ -268,10 +331,6 @@ MathJax.Hub.Config({
     
       <li class="post">
         <a href="/blog/2018/02/11/javascriptdan-li-mo-shi/">JavaScript单例模式</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/02/11/xue-xi-css-transform/">学习CSS Transform</a>
       </li>
     
   </ul>
@@ -290,7 +349,7 @@ MathJax.Hub.Config({
 <li class='category'><a href='/blog/categories/javascript/'>javascript (1)</a></li>
 <li class='category'><a href='/blog/categories/test/'>test (1)</a></li>
 <li class='category'><a href='/blog/categories/web/'>web (3)</a></li>
-<li class='category'><a href='/blog/categories/webpack/'>webpack (1)</a></li>
+<li class='category'><a href='/blog/categories/webpack/'>webpack (2)</a></li>
 
   </ul>
 </section>
